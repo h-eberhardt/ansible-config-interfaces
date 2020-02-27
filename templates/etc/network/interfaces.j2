@@ -24,15 +24,15 @@ iface {{ item['name'] }} inet {{ item['method']|lower }}
   gateway {{ item['gateway'] }}
 {%         endif %}
 {%     if item['configure6'] is defined and item['configure6'] %}
-{%       if item['method']|lower == "static" or item['method']|lower == "manual" %}
+{%       if item['method6']|lower == "static" or item['method6']|lower == "manual" %}
 iface {{ item['name'] }} inet6 {{ item['method6']|lower }}
-{%         if item['address'] is defined and item['address'] != None %}
+{%         if item['address6'] is defined and item['address6'] != None %}
   address {{ item['address6'] }}
 {%         endif %}
-{%         if item['netmask'] is defined and item['netmask'] != None %}
+{%         if item['netmask6'] is defined and item['netmask6'] != None %}
   netmask {{ item['netmask6'] }}
 {%         endif %}
-{%         if item['gateway'] is defined and item['gateway'] != None %}
+{%         if item['gateway6'] is defined and item['gateway6'] != None %}
   gateway {{ item['gateway6'] }}
 {%         endif %}
 {%       endif %}

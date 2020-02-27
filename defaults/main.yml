@@ -23,11 +23,11 @@ config_ovs_bridges: false
 config_ovs_interfaces: false
 
 # Defines all dns servers to configure
-dns_nameservers:
+#dns_nameservers:
   - 192.168.231.3
 
 # Defines your global dns suffix search
-dns_search: "{{ pri_domain_name }}"
+#dns_search: "{{ pri_domain_name }}"
 
 # Defines if interfaces, bonds, bridges, vlans, ovs_bonds, ovs_bridges and
 # ovs_interfaces should be brought up after defining. This can be overridden
@@ -196,4 +196,4 @@ ovs_interfaces:
   #   #     val: access
   #   # parameters:
 
-pri_domain_name: lab.drs.veranstaltungsedv.de
+#pri_domain_name: lab.drs.veranstaltungsedv.de

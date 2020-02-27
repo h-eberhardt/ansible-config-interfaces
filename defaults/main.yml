@@ -8,7 +8,7 @@ config_network_bonds: false
 config_network_bridges: false
 
 # Defines if interfaces should be configured as defined
-config_network_interfaces: false
+config_network_interfaces: true
 
 # Defines if vlans should be configured as defined
 config_network_vlans: false
@@ -23,12 +23,12 @@ config_ovs_bridges: false
 config_ovs_interfaces: false
 
 # Defines all dns servers to configure
-dns_nameservers:
-  - 8.8.8.8
-  - 8.8.4.4
+#dns_nameservers:
+#  - 8.8.8.8
+#  - 8.8.4.4
 
 # Defines your global dns suffix search
-dns_search: "{{ pri_domain_name }}"
+#dns_search: "{{ pri_domain_name }}"
 
 # Defines if interfaces, bonds, bridges, vlans, ovs_bonds, ovs_bridges and
 # ovs_interfaces should be brought up after defining. This can be overridden
@@ -197,4 +197,4 @@ ovs_interfaces:
   #   #     val: access
   #   # parameters:
 
-pri_domain_name: example.org
+#pri_domain_name: example.org

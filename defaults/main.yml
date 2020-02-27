@@ -24,8 +24,7 @@ config_ovs_interfaces: false
 
 # Defines all dns servers to configure
 dns_nameservers:
-  - 8.8.8.8
-  - 8.8.4.4
+  - 192.168.231.3
 
 # Defines your global dns suffix search
 dns_search: "{{ pri_domain_name }}"
@@ -197,4 +196,4 @@ ovs_interfaces:
   #   #     val: access
   #   # parameters:
 
-pri_domain_name: example.org
+pri_domain_name: lab.drs.veranstaltungsedv.de

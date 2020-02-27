@@ -37,6 +37,7 @@ iface {{ item['name'] }} inet6 {{ item['method6']|lower }}
 {%         endif %}
 {%       endif %}
 {%       endif %}
+{%       endif %}
 {%       if item['method']|lower == "dhcp" %}
 auto {{ item['name'] }}
 iface {{ item['name'] }} inet {{ item['method']|lower }}

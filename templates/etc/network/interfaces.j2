@@ -11,8 +11,10 @@ iface lo inet loopback
 {%       if item['comment'] is defined and item['comment'] != None %}
 # {{ item['comment'] }}
 {%       endif %}
-{%       if item['method']|lower == "static" or item['method']|lower == "manual" %}
+{%       if item['method']|lower == "static" or item['method']|lower == "manual" or item['method6']|lower == "static" or item['method6']|lower == "manual" %}
 auto {{ item['name'] }}
+{%       endif %}
+{%       if item['method']|lower == "static" or item['method']|lower == "manual" %}
 iface {{ item['name'] }} inet {{ item['method']|lower }}
 {%         if item['address'] is defined and item['address'] != None %}
   address {{ item['address'] }}
@@ -23,6 +25,7 @@ iface {{ item['name'] }} inet {{ item['method']|lower }}
 {%         if item['gateway'] is defined and item['gateway'] != None %}
   gateway {{ item['gateway'] }}
 {%         endif %}
+{%       endif %}
 {%     if item['configure6'] is defined and item['configure6'] %}
 {%       if item['method6']|lower == "static" or item['method6']|lower == "manual" %}
 iface {{ item['name'] }} inet6 {{ item['method6']|lower }}
@@ -35,7 +38,6 @@ iface {{ item['name'] }} inet6 {{ item['method6']|lower }}
 {%         if item['gateway6'] is defined and item['gateway6'] != None %}
   gateway {{ item['gateway6'] }}
 {%         endif %}
-{%       endif %}
 {%       endif %}
 {%       endif %}
 {%       if item['method']|lower == "dhcp" %}

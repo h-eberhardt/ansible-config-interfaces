@@ -1,11 +1,12 @@
 BOOTPROTO={{ item['method']|lower }}
 DEVICE={{ item['name'] }}
+
 {% if item['method']|lower == 'static' %}
-{% if dns_nameservers is defined %}
-{%   for ns in dns_nameservers %}
+{%   if dns_nameservers is defined %}
+{%     for ns in dns_nameservers %}
 DNS{{ loop.index }}={{ ns }}
-{%   endfor %}
-{% endif %}
+{%     endfor %}
+{%   endif %}
 {%   if item['gateway'] is defined %}
 GATEWAY={{ item['gateway'] }}
 {%   endif %}
@@ -14,6 +15,14 @@ IPADDR={{ item['address'] }}
 {%   endif %}
 {%   if item['netmask'] is defined %}
 NETMASK={{ item['netmask'] }}
+{%   endif %}
+{% endif %}
+{% if item['configure6'] is defined and item['configure6'] %}
+NETWORKING_IPV6=yes
+{%   if item['method']|lower == "static" %}
+IPV6_AUTOCONF=no
+IPV6ADDR={{ item['address6'] }}/{{ item['netmask6']}}
+IPV6_DEFAULTGW={{ item['gateway6']}}
 {%   endif %}
 {% endif %}
 {% if config_network_bonds %}
